@@ -3,6 +3,10 @@
 
   inputs = {
     flake-lib.url = "github:jgus-org/flake-lib/v1";
+    # Legacy payload: Beyond Compare 4 needs gtk2, which current nixpkgs marks broken, and this is
+    # the last release that still evaluates it. flake-lib takes no follows edge for that reason —
+    # its formatter resolves pedantix, absent from this channel, so following would stop the tree
+    # evaluating at all.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
   };
 
